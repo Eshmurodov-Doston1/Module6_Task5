@@ -24,12 +24,21 @@ struct StudentItem: View {
                     .lineLimit(2)
             }
             Spacer()
-            Text(student.gender!)
-                .frame(alignment: .trailing)
-                .foregroundColor(.red)
-                .lineLimit(1)
+            HStack {
+                Text(student.gender!)
+                    .frame(alignment: .trailing)
+                    .foregroundColor(.red)
+                    .lineLimit(1)
+                
+                Button(action: {
+                    moc.delete(student)
+                }, label: {
+                    Image("ic_delete")
+                })
+            }
+            .frame(alignment:.trailing)
         }
-        .padding()
+        
      }
 }
 
